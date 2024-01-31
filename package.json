@@ -2,7 +2,7 @@
   "name": "react-snake-game",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://UroojSha.github.io/Classic-Snake-Game",
+  "homepage": "https://uroojsha.github.io/Classic-Snake-Game",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
