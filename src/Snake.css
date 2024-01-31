@@ -1,0 +1,10 @@
+/* src/Snake.css */
+
+.snake-segment {
+    position: absolute;
+    width: 30px; /* Adjust the size of each segment */
+    height: 30px; /* Adjust the size of each segment */
+    background-color: rgb(75, 79, 75); /* Color of the snake segments */
+
+  }
+  

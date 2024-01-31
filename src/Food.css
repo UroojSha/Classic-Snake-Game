@@ -1,0 +1,9 @@
+/* src/Food.css */
+
+.food {
+    position: absolute;
+    width: 30px; /* Adjust the size of the food */
+    height: 30px; /* Adjust the size of the food */
+    background-color: red; /* Color of the food */
+  }
+  
