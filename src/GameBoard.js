@@ -3,18 +3,31 @@
 import React, { useState, useEffect } from 'react';
 import './GameBoard.css';
 import Snake from './Snake.js';
-import './Food.css'; // Import the Food.css file
+import './Food.css';import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMusic } from '@fortawesome/free-solid-svg-icons';
+
 
 const GameBoard = () => {
-  const gridSize = 10; // Adjust based on the grid size
-  const segmentSize = 30; // Adjust based on the desired size of each segment
+  const gridSize = 10;
+  const segmentSize = 30;
   const [snakeSegments, setSnakeSegments] = useState([{ x: 0, y: 0 }]);
   const [food, setFood] = useState(generateFoodPosition());
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [direction, setDirection] = useState('RIGHT');
-  const [speed, setSpeed] = useState(200); // Adjust the initial speed
+  const [speed, setSpeed] = useState(200);
   const initialSnake = [{ x: 0, y: 0 }];
+  const [backgroundMusic] = useState(new Audio('https://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg'));
+  const [musicPlaying, setMusicPlaying] = useState(false);
+
+  const toggleMusic = () => {
+    if (musicPlaying) {
+      backgroundMusic.pause();
+    } else {
+      backgroundMusic.play();
+    }
+    setMusicPlaying(!musicPlaying);
+  };
 
   function generateFoodPosition() {
     const x = Math.floor(Math.random() * gridSize) * segmentSize;
@@ -133,14 +146,13 @@ const GameBoard = () => {
     setGameOver(false);
     setDirection('RIGHT');
     setSpeed(200);
-  };
+    };
 
-  return (
-    <div className="game-board">
+return (
+<div className="game-board">
       {gameOver ? (
         <div className="game-over-screen">
           <h2>Game Over!</h2>
-          {/* Display the updated score directly */}
           <p>Your score: {score}</p>
           <button onClick={restartGame}>Play Again</button>
         </div>
@@ -154,10 +166,16 @@ const GameBoard = () => {
           </div>
           <Snake snakeSegments={snakeSegments} />
           <div className="food" style={{ top: food.y, left: food.x }} />
+          <FontAwesomeIcon
+      icon={faMusic}
+      className="toggle-music-icon"
+      onClick={toggleMusic}
+    />
+         
         </>
       )}
     </div>
-  );
+);
 };
 
 export default GameBoard;

@@ -1,9 +1,6 @@
-/* src/Food.css */
-
 .food {
-    position: absolute;
-    width: 30px; /* Adjust the size of the food */
-    height: 30px; /* Adjust the size of the food */
-    background-color: red; /* Color of the food */
-  }
-  
+  width: 30px; /* This should match your segmentSize */
+  height: 30px; /* This should match your segmentSize */
+  background-color: red; /* Or any color you'd like for the food */
+  position: absolute;
+}
